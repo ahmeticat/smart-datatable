@@ -1,6 +1,10 @@
-<table>
+<!-- <p [innerHTML]="themeFile | safeHtml"></p> 
+<link id="theme" href="" rel="stylesheet"> -->
+<!-- <link id="themes" href="./themes/bootstrap3/bootstrap.min.css"> -->
+<table [ngClass]="{'table table-striped table-hover': cssClass === cssClasses.Bootstrap4}">
     <thead smart-head [model]="model"></thead>
     <tbody smart-body [model]="model" [data]="data">
-
     </tbody>
 </table>
+<smart-pager>
+</smart-pager>

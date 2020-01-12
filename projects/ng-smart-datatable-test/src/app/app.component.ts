@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { SmartModel } from 'projects/ng-smart-datatable/src/lib/lib/source/smart-model.model';
+import { SmartCssClass } from 'projects/ng-smart-datatable/src/lib/lib/helpers/smart-css-class.model';
 
 @Component({
   selector: 'app-root',
@@ -41,4 +42,6 @@ export class AppComponent {
       }
     ]
   };
+
+  cssClass = SmartCssClass.Bootstrap4;
 }
