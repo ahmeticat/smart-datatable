@@ -1,0 +1,5 @@
+<tr *ngFor="let item of data">
+    <td *ngFor="let property of model.properties">
+        {{ getValue(item,property.key) }}
+    </td>
+</tr>

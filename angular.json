@@ -7,7 +7,7 @@
       "projectType": "library",
       "root": "projects/ng-smart-datatable",
       "sourceRoot": "projects/ng-smart-datatable/src",
-      "prefix": "lib",
+      "prefix": "smart",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-ng-packagr:build",
@@ -150,6 +150,7 @@
           }
         }
       }
-    }},
+    }
+  },
   "defaultProject": "ng-smart-datatable"
 }
