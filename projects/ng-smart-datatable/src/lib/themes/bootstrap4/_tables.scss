@@ -2,7 +2,7 @@
 // Basic Bootstrap table
 //
 
-.table {
+.bootstrap4-table {
   width: 100%;
   max-width: 100%;
   margin-bottom: $spacer;
@@ -34,7 +34,7 @@
 // Condensed table w/ half padding
 //
 
-.table-sm {
+.bootstrap4-table-sm {
   th,
   td {
     padding: $table-cell-padding-sm;
@@ -46,7 +46,7 @@
 //
 // Add borders all around the table and between all the columns.
 
-.table-bordered {
+.bootstrap4-able-bordered {
   border: $table-border-width solid $table-border-color;
 
   th,
@@ -67,7 +67,7 @@
 //
 // Default zebra-stripe styles (alternating gray and transparent backgrounds)
 
-.table-striped {
+.bootstrap4-table-striped {
   tbody tr:nth-of-type(odd) {
     background-color: $table-accent-bg;
   }
@@ -78,7 +78,7 @@
 //
 // Placed here since it has to come after the potential zebra striping
 
-.table-hover {
+.bootstrap4-table-hover {
   tbody tr {
     @include hover {
       background-color: $table-hover-bg;
@@ -104,8 +104,8 @@
 // Same table markup, but inverted color scheme: dark background and light text.
 
 // stylelint-disable-next-line no-duplicate-selectors
-.table {
-  .thead-dark {
+.bootstrap4-table {
+  .bootstrap4-thead-dark {
     th {
       color: $table-dark-color;
       background-color: $table-dark-bg;
@@ -113,7 +113,7 @@
     }
   }
 
-  .thead-light {
+  .bootstrap4-thead-light {
     th {
       color: $table-head-color;
       background-color: $table-head-bg;
@@ -122,7 +122,7 @@
   }
 }
 
-.table-dark {
+.bootstrap4-table-dark {
   color: $table-dark-color;
   background-color: $table-dark-bg;
 
@@ -132,17 +132,17 @@
     border-color: $table-dark-border-color;
   }
 
-  &.table-bordered {
+  &.bootstrap4-table-bordered {
     border: 0;
   }
 
-  &.table-striped {
+  &.bootstrap4-table-striped {
     tbody tr:nth-of-type(odd) {
       background-color: $table-dark-accent-bg;
     }
   }
 
-  &.table-hover {
+  &.bootstrap4-table-hover {
     tbody tr {
       @include hover {
         background-color: $table-dark-hover-bg;
@@ -157,7 +157,7 @@
 // Generate series of `.table-responsive-*` classes for configuring the screen
 // size of where your table will overflow.
 
-.table-responsive {
+.bootstrap4-table-responsive {
   @each $breakpoint in map-keys($grid-breakpoints) {
     $next: breakpoint-next($breakpoint, $grid-breakpoints);
     $infix: breakpoint-infix($next, $grid-breakpoints);
@@ -171,7 +171,7 @@
         -ms-overflow-style: -ms-autohiding-scrollbar; // See https://github.com/twbs/bootstrap/pull/10057
 
         // Prevent double border on horizontal scroll due to use of `display: block;`
-        > .table-bordered {
+        > .bootstrap4-table-bordered {
           border: 0;
         }
       }

@@ -1,17 +1,2 @@
-$file: true; // set to false if you don't want to load the file
-
-%loadFile {
-  @import "../lib/themes/bootstrap4/bootstrap.scss";
-}
-
-%loadFile2 {
-  @import "../lib/themes/bootstrap3/bootstrap.min.css";
-}
-
-html {
-  @if $file == true {
-    @extend %loadFile;
-  } @else {
-    @extend %loadFile2;
-  }
-}
+@import "./themes/bootstrap4/bootstrap.scss";
+@import "./themes/bootstrap3/bootstrap.scss";
