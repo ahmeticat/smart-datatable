@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
 @Component({
   selector: 'smart-pager',
@@ -7,9 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class PagerComponent implements OnInit {
 
-  constructor() { }
+  @Input() pages: number[] = [];
+  @Input() activePage: number;
+  @Output() updatePageEvent: EventEmitter<number> = new EventEmitter<number>();
+  constructor() {
+  }
 
   ngOnInit() {
   }
 
+  updatePage(pageNumber: number) {
+    this.updatePageEvent.emit(pageNumber);
+  }
 }
