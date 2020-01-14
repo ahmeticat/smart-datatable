@@ -4,6 +4,7 @@ import { SmartCssClass } from './lib/helpers/smart-css-class.model';
 import { SmartLength } from './lib/helpers/smart-length.model';
 import { SmartSortProperty } from './lib/source/smart-sort-property.model';
 import { SmartSort } from './lib/helpers/smart-sort.model';
+import { SmartFilter } from './lib/helpers/smart-filter.model';
 
 
 @Component({
@@ -47,13 +48,14 @@ export class NgSmartDatatableComponent implements OnInit {
   activeData = [];
   activeSortProperty: SmartSortProperty;
   pages: number[] = [];
+  tempData: any[] = [];
   private cssClasses = SmartCssClass;
   constructor() {
   }
 
   ngOnInit() {
-    this.calculatePageCount();
-    this.updatePageData();
+    this.tempData = this.data;
+    this.refreshTable();
     this.activeSortProperty = {
       isAsc : true,
       property: this.model.properties[0].key
@@ -68,29 +70,36 @@ export class NgSmartDatatableComponent implements OnInit {
   }
 
   updatePageData() {
-    this.activeData = this.data.slice(((this.activePage - 1) * this.length), ((this.activePage) * this.length));
+    this.activeData = this.tempData.slice(((this.activePage - 1) * this.length), ((this.activePage) * this.length));
   }
 
   calculatePageCount() {
-    this.pageCount = Math.ceil(this.data.length / this.length);
+    this.pageCount = Math.ceil(this.tempData.length / this.length);
     this.initializePages();
   }
 
   updatePageNumber(newPageNumber) {
     this.activePage = newPageNumber;
-    this.calculatePageCount();
-    this.updatePageData();
+    this.refreshTable();
   }
 
   updateLength(newLength) {
     this.length = newLength;
     this.activePage = 1;
-    this.calculatePageCount();
-    this.updatePageData();
+    this.refreshTable();
   }
 
   sortProperty(activeProperty:SmartSortProperty){
-    this.activeData = SmartSort.sort(this.data,activeProperty.property,activeProperty.isAsc);
+    this.activeData = SmartSort.sort(this.tempData,activeProperty.property,activeProperty.isAsc);
+    this.refreshTable();
+  }
+
+  updateFilter(filterValue:string){
+    this.tempData = SmartFilter.filterAllProperty(this.data, filterValue);
+    this.refreshTable();
+  }
+
+  refreshTable(){
     this.calculatePageCount();
     this.updatePageData();
   }

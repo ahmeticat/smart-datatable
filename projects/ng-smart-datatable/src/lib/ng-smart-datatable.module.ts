@@ -5,6 +5,7 @@ import { SmartTHeadModuleModule } from './components/thead/smart-thead-module.mo
 import { CommonModule } from '@angular/common';
 import { SmartPagerModule } from './components/pager/smart-pager.module';
 import { SmartLengthModule } from './components/length/smart-length.module';
+import { SmartFilterModule } from './components/filter/smart-filter.module';
 
 @NgModule({
   declarations: [NgSmartDatatableComponent],
@@ -13,7 +14,8 @@ import { SmartLengthModule } from './components/length/smart-length.module';
     SmartTBodyModuleModule,
     SmartTHeadModuleModule,
     SmartPagerModule,
-    SmartLengthModule
+    SmartLengthModule,
+    SmartFilterModule
   ],
   exports: [NgSmartDatatableComponent]
 })

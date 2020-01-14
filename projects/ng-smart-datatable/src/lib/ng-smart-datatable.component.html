@@ -1,4 +1,5 @@
 <smart-length (lengthChangeEvent)="updateLength($event)" [length]="length" [lengthMenu]="lengthMenu"></smart-length>
+<smart-filter (filterChangeEvent)="updateFilter($event)"></smart-filter>
 <table class="smart-datatable" [ngClass]="{
     'bootstrap3-table bootstrap3-table-striped bootstrap3-table-hover': cssClass === cssClasses.Bootstrap3,
     'bootstrap4-table bootstrap4-table-striped bootstrap4-table-hover': cssClass === cssClasses.Bootstrap4
@@ -9,4 +10,5 @@
     </tbody>
 </table>
 <smart-pager (updatePageEvent)="updatePageNumber($event)" [activePage]="activePage" [pages]="pages">
+
 </smart-pager>
