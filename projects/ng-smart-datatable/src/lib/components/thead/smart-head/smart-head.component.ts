@@ -1,5 +1,6 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { SmartModel } from '../../../lib/source/smart-model.model';
+import { SmartSortProperty } from '../../../lib/source/smart-sort-property.model';
 
 @Component({
   selector: '[smart-head]',
@@ -9,6 +10,9 @@ import { SmartModel } from '../../../lib/source/smart-model.model';
 export class SmartHeadComponent {
 
   @Input() model: SmartModel;
+  @Input() activeSortProperty: SmartSortProperty;
+  @Output() sortChangeEvent: EventEmitter<SmartSortProperty> = new EventEmitter<SmartSortProperty>();
+
   constructor() { }
 
 

@@ -2,6 +2,8 @@ import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
 import { SmartModel } from './lib/source/smart-model.model';
 import { SmartCssClass } from './lib/helpers/smart-css-class.model';
 import { SmartLength } from './lib/helpers/smart-length.model';
+import { SmartSortProperty } from './lib/source/smart-sort-property.model';
+import { SmartSort } from './lib/helpers/smart-sort.model';
 
 
 @Component({
@@ -43,6 +45,7 @@ export class NgSmartDatatableComponent implements OnInit {
   @Input() pageCount = 0;
   @Input() length = 10;
   activeData = [];
+  activeSortProperty: SmartSortProperty;
   pages: number[] = [];
   private cssClasses = SmartCssClass;
   constructor() {
@@ -51,6 +54,10 @@ export class NgSmartDatatableComponent implements OnInit {
   ngOnInit() {
     this.calculatePageCount();
     this.updatePageData();
+    this.activeSortProperty = {
+      isAsc : true,
+      property: this.model.properties[0].key
+    };
   }
 
   initializePages() {
@@ -78,6 +85,12 @@ export class NgSmartDatatableComponent implements OnInit {
   updateLength(newLength) {
     this.length = newLength;
     this.activePage = 1;
+    this.calculatePageCount();
+    this.updatePageData();
+  }
+
+  sortProperty(activeProperty:SmartSortProperty){
+    this.activeData = SmartSort.sort(this.data,activeProperty.property,activeProperty.isAsc);
     this.calculatePageCount();
     this.updatePageData();
   }

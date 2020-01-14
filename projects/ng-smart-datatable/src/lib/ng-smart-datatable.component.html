@@ -1,9 +1,10 @@
 <smart-length (lengthChangeEvent)="updateLength($event)" [length]="length" [lengthMenu]="lengthMenu"></smart-length>
-<table [ngClass]="{
+<table class="smart-datatable" [ngClass]="{
     'bootstrap3-table bootstrap3-table-striped bootstrap3-table-hover': cssClass === cssClasses.Bootstrap3,
     'bootstrap4-table bootstrap4-table-striped bootstrap4-table-hover': cssClass === cssClasses.Bootstrap4
 }">
-    <thead smart-head [model]="model"></thead>
+    <thead smart-head [model]="model" [activeSortProperty]="activeSortProperty" 
+    (sortChangeEvent)="sortProperty($event)"></thead>
     <tbody smart-body [model]="model" [data]="activeData">
     </tbody>
 </table>

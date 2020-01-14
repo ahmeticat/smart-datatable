@@ -1,2 +1,23 @@
 @import "./themes/bootstrap4/bootstrap.scss";
 @import "./themes/bootstrap3/bootstrap.scss";
+
+.sorting_desc {
+    background-image: url("./assets/images/sort_desc.png");
+    background-repeat: no-repeat;
+    background-position: center right;
+    cursor: pointer;
+}
+
+.sorting {
+    background-image: url("./assets/images/sort_both.png");
+    background-repeat: no-repeat;
+    background-position: center right;
+    cursor: pointer;
+}
+
+.sorting_asc {
+    background-image: url("./assets/images/sort_asc.png");
+    background-repeat: no-repeat;
+    background-position: center right;
+    cursor: pointer;
+}
