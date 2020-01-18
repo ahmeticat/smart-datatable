@@ -13,6 +13,7 @@ export class ColumnComponent {
   @Input() model: SmartModel;
   @Input() activeSortProperty: SmartSortProperty;
   @Input() showActions = true;
+  @Output() propertyChangeEvent: EventEmitter<any> = new EventEmitter<any>();
   @Output() sortChangeEvent: EventEmitter<SmartSortProperty> = new EventEmitter<SmartSortProperty>();
 
   sortClick(property: SmartProperty) {
@@ -28,5 +29,9 @@ export class ColumnComponent {
 
   getLength() {
     return Number(100 / this.model.properties.length);
+  }
+
+  onTextChange(property: SmartProperty, text) {
+    this.propertyChangeEvent.emit({ property, text });
   }
 }

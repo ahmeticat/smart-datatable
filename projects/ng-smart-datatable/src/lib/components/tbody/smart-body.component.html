@@ -8,7 +8,10 @@
     </td>
 </tr>
 <tr *ngIf="data.length === 0" class="no-result-row">
-    <td [colSpan]= "model.properties.length">
-         Sonuç bulunamadı
-    </td> 
+    <td *ngIf="showActions" [colSpan]="model.properties.length + 1">
+        Sonuç bulunamadı
+    </td>
+    <td *ngIf="!showActions" [colSpan]="model.properties.length">
+        Sonuç bulunamadı
+    </td>
 </tr>

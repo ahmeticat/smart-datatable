@@ -13,6 +13,7 @@ export class SmartHeadComponent {
   @Input() activeSortProperty: SmartSortProperty;
   @Input() showActions = true;
   @Output() sortChangeEvent: EventEmitter<SmartSortProperty> = new EventEmitter<SmartSortProperty>();
+  @Output() propertyChangeEvent: EventEmitter<any> = new EventEmitter<any>();
 
   constructor() { }
 

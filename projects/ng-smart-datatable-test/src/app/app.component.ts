@@ -140,15 +140,16 @@ export class AppComponent {
     }
   ];
 
-  model = {
+  model: SmartModel = {
     properties: [
       {
         title: 'Adı',
-        key: 'name'
+        key: 'name',
+        inlineSearch: true
       },
       {
         title: 'Soyadı',
-        key: 'surname'
+        key: 'surname',
       }
     ]
   };

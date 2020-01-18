@@ -1,2 +1,2 @@
 <tr smart-head-column [model]="model" [activeSortProperty]="activeSortProperty"
-(sortChangeEvent)="this.sortChangeEvent.emit($event)"></tr>
+    (sortChangeEvent)="this.sortChangeEvent.emit($event)" (propertyChangeEvent)="propertyChangeEvent.emit($event)"></tr>

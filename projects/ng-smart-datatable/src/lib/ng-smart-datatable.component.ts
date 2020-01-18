@@ -5,6 +5,7 @@ import { SmartLength } from './lib/helpers/smart-length.model';
 import { SmartSortProperty } from './lib/source/smart-sort-property.model';
 import { SmartSort } from './lib/helpers/smart-sort.model';
 import { SmartFilter } from './lib/helpers/smart-filter.model';
+import { SmartProperty } from './lib/source/smart-property.model';
 
 
 @Component({
@@ -44,11 +45,11 @@ export class NgSmartDatatableComponent implements OnInit {
 
   @Input() activePage = 1;
   @Input() showActions = true;
-  @Input() pageCount = 0;
   @Input() length = 10;
   @Output() btnAddClickEvent: EventEmitter<any> = new EventEmitter<any>();
   @Output() btnEditClickEvent: EventEmitter<any> = new EventEmitter<any>();
   @Output() btnDeleteClickEvent: EventEmitter<any> = new EventEmitter<any>();
+  pageCount = 0;
   activeData = [];
   activeSortProperty: SmartSortProperty;
   pages: number[] = [];
@@ -123,5 +124,10 @@ export class NgSmartDatatableComponent implements OnInit {
 
   btnDeleteClick(item: any) {
     this.btnDeleteClickEvent.emit(item);
+  }
+
+  onPropertyChanged(event) {
+    this.tempData = SmartFilter.filter(this.data, (event.property as SmartProperty).key, event.text);
+    this.refreshTable();
   }
 }
