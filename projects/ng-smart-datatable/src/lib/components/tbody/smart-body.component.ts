@@ -1,24 +1,22 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SmartModel } from '../../lib/source/smart-model.model';
+import { SmartProperty } from '../../lib/source/smart-property.model';
 
 @Component({
   selector: '[smart-body]',
   templateUrl: './smart-body.component.html',
   styleUrls: ['./smart-body.component.scss']
 })
-export class SmartBodyComponent implements OnInit {
+export class SmartBodyComponent {
 
   @Input() data: any[];
   @Input() model: SmartModel;
   @Input() showActions = true;
-  @Output() btnAddClickEvent: EventEmitter<any> = new EventEmitter<any>();
+  @Input() actionsColumnOrder: number;
   @Output() btnEditClickEvent: EventEmitter<any> = new EventEmitter<any>();
   @Output() btnDeleteClickEvent: EventEmitter<any> = new EventEmitter<any>();
-
-  constructor() { }
-
-  ngOnInit() {
-  }
+  @Input() beforeActionProperties: SmartProperty[] = [];
+  @Input() afterActionProperties: SmartProperty[] = [];
 
   getValue(item: any, key: string): string {
     return item[`${key}`];

@@ -163,4 +163,8 @@ export class AppComponent {
   btnDeleteClick(item: any) {
     alert(`Delete Click : ${JSON.stringify(item)}`);
   }
+
+  btnAddClick() {
+    alert(`Add Click`);
+  }
 }

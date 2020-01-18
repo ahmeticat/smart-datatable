@@ -10,7 +10,8 @@ import { SmartActionModule } from './action/smart-action.module';
     SmartActionModule
   ],
   exports: [
-    SmartBodyComponent
+    SmartBodyComponent,
+    SmartActionModule
   ]
 })
 export class SmartTBodyModuleModule { }

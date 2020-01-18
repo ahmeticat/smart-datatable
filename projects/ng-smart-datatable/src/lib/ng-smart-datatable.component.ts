@@ -46,6 +46,7 @@ export class NgSmartDatatableComponent implements OnInit {
   @Input() activePage = 1;
   @Input() showActions = true;
   @Input() length = 10;
+  @Input() actionsColumnOrder?: number = null;
   @Output() btnAddClickEvent: EventEmitter<any> = new EventEmitter<any>();
   @Output() btnEditClickEvent: EventEmitter<any> = new EventEmitter<any>();
   @Output() btnDeleteClickEvent: EventEmitter<any> = new EventEmitter<any>();
@@ -56,19 +57,24 @@ export class NgSmartDatatableComponent implements OnInit {
   tempData: any[] = [];
   firstEntryOrder = 1;
   lastEntryOrder = 1;
+  beforeActionProperties: SmartProperty[] = [];
+  afterActionProperties: SmartProperty[] = [];
   private cssClasses = SmartCssClass;
   constructor() {
   }
 
   ngOnInit() {
+    this.actionsColumnOrder = this.actionsColumnOrder === null ? this.model.properties.length : this.actionsColumnOrder;
     this.tempData = this.data;
     this.refreshTable();
     this.activeSortProperty = {
       isAsc: true,
       property: this.model.properties[0].key
     };
-  }
+    this.beforeActionProperties = this.model.properties.slice(0, this.actionsColumnOrder);
+    this.afterActionProperties = this.model.properties.slice(this.actionsColumnOrder, this.model.properties.length);
 
+  }
   initializePages() {
     this.pages = [];
     for (let index = 0; index < this.pageCount; index++) {
@@ -91,7 +97,7 @@ export class NgSmartDatatableComponent implements OnInit {
   }
 
   updateLength(newLength) {
-    this.length = newLength;
+    this.length = Number(newLength);
     this.activePage = 1;
     this.refreshTable();
   }
@@ -114,8 +120,9 @@ export class NgSmartDatatableComponent implements OnInit {
 
   updateInfo() {
     this.firstEntryOrder = (this.activePage - 1) * this.length + 1;
-    this.lastEntryOrder = this.firstEntryOrder + this.length >
+    this.lastEntryOrder = this.length === -1 ? this.tempData.length : this.firstEntryOrder + this.length >
       this.tempData.length ? this.tempData.length : this.firstEntryOrder + this.length;
+
   }
 
   btnEditClick(item: any) {
@@ -124,6 +131,10 @@ export class NgSmartDatatableComponent implements OnInit {
 
   btnDeleteClick(item: any) {
     this.btnDeleteClickEvent.emit(item);
+  }
+
+  btnAddClick() {
+    this.btnAddClickEvent.emit();
   }
 
   onPropertyChanged(event) {

@@ -10,11 +10,11 @@ export class SmartFilter {
             this.turkishToLower(o[k].toLowerCase()).includes(this.turkishToLower(key.toLowerCase()))));
     }
 
-    static turkishToLower(word) {
-        let string = word;
-        let letters = { 'İ': 'i', 'I': 'ı', 'Ş': 'ş', 'Ğ': 'ğ', 'Ü': 'ü', 'Ö': 'ö', 'Ç': 'ç' };
-        string = string.replace(/(([İIŞĞÜÇÖ]))/g, (letter) => letters[letter]);
-        return string.toLowerCase();
+    static turkishToLower(word: string) {
+        // tslint:disable-next-line: object-literal-key-quotes
+        const letters = { 'İ': 'i', 'I': 'ı', 'Ş': 'ş', 'Ğ': 'ğ', 'Ü': 'ü', 'Ö': 'ö', 'Ç': 'ç' };
+        word = word.replace(/(([İIŞĞÜÇÖ]))/g, (letter) => letters[letter]);
+        return word.toLowerCase();
     }
 }
 
