@@ -154,4 +154,12 @@ export class AppComponent {
   };
 
   cssClass = SmartCssClass.Bootstrap4;
+
+  btnEditClick(item: any) {
+    alert(`Edit Click : ${JSON.stringify(item)}`);
+  }
+
+  btnDeleteClick(item: any) {
+    alert(`Delete Click : ${JSON.stringify(item)}`);
+  }
 }

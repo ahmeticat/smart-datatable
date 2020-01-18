@@ -2,6 +2,10 @@
     <td *ngFor="let property of model.properties">
         {{ getValue(item,property.key) }}
     </td>
+    <td *ngIf="showActions">
+        <smart-edit (btnEditClickEvent)="btnEditClick(item)"></smart-edit>
+        <smart-delete (btnDeleteClickEvent)="btnDeleteClick(item)"></smart-delete>
+    </td>
 </tr>
 <tr *ngIf="data.length === 0" class="no-result-row">
     <td [colSpan]= "model.properties.length">

@@ -1,4 +1,5 @@
 <div style="padding: 30px;">
-    <ng-smart-datatable [data]="data" [model]="model" [cssClass]="cssClass">
-    </ng-smart-datatable>    
+    <ng-smart-datatable [data]="data" [model]="model" [cssClass]="cssClass" (btnEditClickEvent)="btnEditClick($event)"
+        (btnDeleteClickEvent)="btnDeleteClick($event)">
+    </ng-smart-datatable>
 </div>

@@ -12,6 +12,7 @@ export class ColumnComponent {
 
   @Input() model: SmartModel;
   @Input() activeSortProperty: SmartSortProperty;
+  @Input() showActions = true;
   @Output() sortChangeEvent: EventEmitter<SmartSortProperty> = new EventEmitter<SmartSortProperty>();
 
   sortClick(property: SmartProperty) {

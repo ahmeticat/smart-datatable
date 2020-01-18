@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, ViewEncapsulation, EventEmitter, Output } from '@angular/core';
 import { SmartModel } from './lib/source/smart-model.model';
 import { SmartCssClass } from './lib/helpers/smart-css-class.model';
 import { SmartLength } from './lib/helpers/smart-length.model';
@@ -43,8 +43,12 @@ export class NgSmartDatatableComponent implements OnInit {
     ] as SmartLength[];
 
   @Input() activePage = 1;
+  @Input() showActions = true;
   @Input() pageCount = 0;
   @Input() length = 10;
+  @Output() btnAddClickEvent: EventEmitter<any> = new EventEmitter<any>();
+  @Output() btnEditClickEvent: EventEmitter<any> = new EventEmitter<any>();
+  @Output() btnDeleteClickEvent: EventEmitter<any> = new EventEmitter<any>();
   activeData = [];
   activeSortProperty: SmartSortProperty;
   pages: number[] = [];
@@ -111,5 +115,13 @@ export class NgSmartDatatableComponent implements OnInit {
     this.firstEntryOrder = (this.activePage - 1) * this.length + 1;
     this.lastEntryOrder = this.firstEntryOrder + this.length >
       this.tempData.length ? this.tempData.length : this.firstEntryOrder + this.length;
+  }
+
+  btnEditClick(item: any) {
+    this.btnEditClickEvent.emit(item);
+  }
+
+  btnDeleteClick(item: any) {
+    this.btnDeleteClickEvent.emit(item);
   }
 }
