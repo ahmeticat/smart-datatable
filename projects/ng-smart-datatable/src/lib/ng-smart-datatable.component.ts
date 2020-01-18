@@ -49,6 +49,8 @@ export class NgSmartDatatableComponent implements OnInit {
   activeSortProperty: SmartSortProperty;
   pages: number[] = [];
   tempData: any[] = [];
+  firstEntryOrder = 1;
+  lastEntryOrder = 1;
   private cssClasses = SmartCssClass;
   constructor() {
   }
@@ -57,7 +59,7 @@ export class NgSmartDatatableComponent implements OnInit {
     this.tempData = this.data;
     this.refreshTable();
     this.activeSortProperty = {
-      isAsc : true,
+      isAsc: true,
       property: this.model.properties[0].key
     };
   }
@@ -89,18 +91,25 @@ export class NgSmartDatatableComponent implements OnInit {
     this.refreshTable();
   }
 
-  sortProperty(activeProperty:SmartSortProperty){
-    this.activeData = SmartSort.sort(this.tempData,activeProperty.property,activeProperty.isAsc);
+  sortProperty(activeProperty: SmartSortProperty) {
+    this.activeData = SmartSort.sort(this.tempData, activeProperty.property, activeProperty.isAsc);
     this.refreshTable();
   }
 
-  updateFilter(filterValue:string){
+  updateFilter(filterValue: string) {
     this.tempData = SmartFilter.filterAllProperty(this.data, filterValue);
     this.refreshTable();
   }
 
-  refreshTable(){
+  refreshTable() {
     this.calculatePageCount();
     this.updatePageData();
+    this.updateInfo();
+  }
+
+  updateInfo() {
+    this.firstEntryOrder = (this.activePage - 1) * this.length + 1;
+    this.lastEntryOrder = this.firstEntryOrder + this.length >
+      this.tempData.length ? this.tempData.length : this.firstEntryOrder + this.length;
   }
 }

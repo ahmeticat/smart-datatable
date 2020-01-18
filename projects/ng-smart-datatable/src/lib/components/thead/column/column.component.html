@@ -1,4 +1,4 @@
-<th *ngFor="let property of model.properties" 
+<th [style.width]="getLength() + '%'" *ngFor="let property of model.properties" 
 (click)="sortClick(property)"
 [ngClass]="{
     'sorting_asc': activeSortProperty.property === property.key && activeSortProperty.isAsc,

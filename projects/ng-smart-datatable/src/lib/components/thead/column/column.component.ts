@@ -9,19 +9,23 @@ import { SmartProperty } from '../../../lib/source/smart-property.model';
   styleUrls: ['./column.component.scss']
 })
 export class ColumnComponent {
-  
+
   @Input() model: SmartModel;
   @Input() activeSortProperty: SmartSortProperty;
   @Output() sortChangeEvent: EventEmitter<SmartSortProperty> = new EventEmitter<SmartSortProperty>();
 
-  sortClick(property:SmartProperty){
-    if(this.activeSortProperty.property === property.key){
+  sortClick(property: SmartProperty) {
+    if (this.activeSortProperty.property === property.key) {
       this.activeSortProperty.isAsc = !this.activeSortProperty.isAsc;
       this.sortChangeEvent.emit(this.activeSortProperty);
-    }else{
+    } else {
       this.activeSortProperty.property = property.key;
       this.activeSortProperty.isAsc = true;
       this.sortChangeEvent.emit(this.activeSortProperty);
     }
+  }
+
+  getLength() {
+    return Number(100 / this.model.properties.length);
   }
 }
