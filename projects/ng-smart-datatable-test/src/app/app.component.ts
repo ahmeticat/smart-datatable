@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { SmartModel } from 'projects/ng-smart-datatable/src/lib/lib/source/smart-model.model';
 import { SmartCssClass } from 'projects/ng-smart-datatable/src/lib/lib/helpers/smart-css-class.model';
 import { ActionType } from 'projects/ng-smart-datatable/src/lib/lib/source/smart-action-type.model';
+import { SmartButtonType } from 'projects/ng-smart-datatable/src/lib/lib/source/smart-button-type.model';
 
 @Component({
   selector: 'app-root',
@@ -210,6 +211,14 @@ export class AppComponent {
         visible: true,
         click: this.btnCustomClick
       },
+    ],
+    buttons: [
+      {
+        content: 'Custom',
+        type: SmartButtonType.Custom,
+        visible: true,
+        action: this.btnCustomButtonClick
+      }
     ]
   };
 
@@ -229,4 +238,7 @@ export class AppComponent {
     alert(`Custom Click : ${JSON.stringify(item)}`);
   }
 
+  btnCustomButtonClick() {
+    alert(`Custom Button Click`);
+  }
 }

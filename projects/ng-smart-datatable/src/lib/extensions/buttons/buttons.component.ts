@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { SmartButton } from '../../lib/source/smart-button.model';
 import { SmartButtonType } from '../../lib/source/smart-button-type.model';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'smart-buttons',
@@ -20,7 +21,7 @@ export class ButtonsComponent implements OnInit {
   pdfButton: SmartButton;
   copyButton: SmartButton;
   customButtons: SmartButton[];
-  constructor() { }
+  constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
     this.copyButton = this.buttons.find(a => a.type === SmartButtonType.Copy);
@@ -30,4 +31,7 @@ export class ButtonsComponent implements OnInit {
     this.customButtons = this.buttons.filter(a => a.type === SmartButtonType.Custom);
   }
 
+  getContent(content: string): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(content);
+  }
 }
