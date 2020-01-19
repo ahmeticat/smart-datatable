@@ -140,12 +140,21 @@ export class AppComponent {
     }
   ];
 
+  cssClass = SmartCssClass.Bootstrap4;
+
+  colDef = (item, key) => {
+    return `<b>${item[`${key}`]}</b>`;
+  }
+
+
+  // tslint:disable-next-line: member-ordering
   model: SmartModel = {
     properties: [
       {
         title: 'Adı',
         key: 'name',
-        inlineSearch: true
+        inlineSearch: true,
+        smartHtml: this.colDef
       },
       {
         title: 'Soyadı',
@@ -153,8 +162,6 @@ export class AppComponent {
       }
     ]
   };
-
-  cssClass = SmartCssClass.Bootstrap4;
 
   btnEditClick(item: any) {
     alert(`Edit Click : ${JSON.stringify(item)}`);

@@ -1,5 +1,5 @@
-<nav aria-label="Page navigation example">
-  <ul class="pagination">
+<nav>
+  <ul class="pagination" *ngIf="pages.length > 0">
     <li class="page-item" [ngClass]="{'disabled': activePage === 1}">
       <a class="page-link" href="javascript:;" (click)="updatePage(activePage-1)">Previous</a>
     </li>

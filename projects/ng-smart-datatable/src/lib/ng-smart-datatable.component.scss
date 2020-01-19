@@ -58,6 +58,11 @@
   float: right;
 }
 
-.smart-datatable{
-    margin-top: 5px;
+.smart-datatable {
+  margin-top: 5px;
+}
+
+.smart-datatable tbody {
+  border-top: 0.5px solid #ababab;
+  border-bottom: 0.5px solid #ababab;
 }

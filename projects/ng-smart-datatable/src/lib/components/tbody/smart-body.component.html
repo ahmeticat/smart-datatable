@@ -1,20 +1,20 @@
 <tr *ngFor="let item of data">
-    <td *ngFor="let property of beforeActionProperties">
-        {{ getValue(item,property.key) }}
+    <td *ngFor="let property of beforeActionProperties"
+    [innerHTML]="property.smartHtml !== undefined ? getHtml(item,property.smartHtml,property.key) :  getValue(item,property.key)">
     </td>
     <td *ngIf="showActions">
         <smart-edit (btnEditClickEvent)="btnEditClick(item)"></smart-edit>
         <smart-delete (btnDeleteClickEvent)="btnDeleteClick(item)"></smart-delete>
     </td>
-    <td *ngFor="let property of afterActionProperties">
-        {{ getValue(item,property.key) }}
+    <td *ngFor="let property of afterActionProperties"
+     [innerHTML]="property.smartHtml !== undefined ? getHtml(item,property.smartHtml,property.key) :  getValue(item,property.key)">
     </td>
 </tr>
 <tr *ngIf="data.length === 0" class="no-result-row">
     <td *ngIf="showActions" [colSpan]="model.properties.length + 1">
-        Sonuç bulunamadı
+        No results found
     </td>
     <td *ngIf="!showActions" [colSpan]="model.properties.length">
-        Sonuç bulunamadı
+        No results found
     </td>
 </tr>
