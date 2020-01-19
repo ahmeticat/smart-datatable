@@ -1,4 +1,5 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter, Input } from '@angular/core';
+import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
 
 @Component({
   selector: 'smart-add',
@@ -7,13 +8,18 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class AddComponent implements OnInit {
 
+  @Input() btnAddContent: string;
   @Output() btnAddClickEvent: EventEmitter<void> = new EventEmitter<void>();
-  constructor() { }
+  constructor(private sanitizer: DomSanitizer) { }
 
   ngOnInit() {
   }
 
   btnAddClick() {
     this.btnAddClickEvent.emit();
+  }
+
+  getHtml(): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(this.btnAddContent);
   }
 }

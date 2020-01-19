@@ -5,7 +5,7 @@ import { SmartCssClass } from 'projects/ng-smart-datatable/src/lib/lib/helpers/s
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.scss']
 })
 export class AppComponent {
   data = [
@@ -160,6 +160,18 @@ export class AppComponent {
         title: 'Soyadı',
         key: 'surname',
       }
+    ],
+    actions: [
+      {
+        key: 'SmartAdd',
+        content: '<input type="button" value="Add" class="add-item">',
+        visible: true
+      },
+      {
+        key: 'Custom',
+        content: 'First Custom Button',
+        visible: true
+      },
     ]
   };
 

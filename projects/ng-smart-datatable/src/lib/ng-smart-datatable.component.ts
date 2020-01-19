@@ -6,6 +6,7 @@ import { SmartSortProperty } from './lib/source/smart-sort-property.model';
 import { SmartSort } from './lib/helpers/smart-sort.model';
 import { SmartFilter } from './lib/helpers/smart-filter.model';
 import { SmartProperty } from './lib/source/smart-property.model';
+import { SmartAction } from './lib/source/smart-action-property.model';
 
 
 @Component({
@@ -59,6 +60,7 @@ export class NgSmartDatatableComponent implements OnInit {
   lastEntryOrder = 1;
   beforeActionProperties: SmartProperty[] = [];
   afterActionProperties: SmartProperty[] = [];
+  addActionButton: SmartAction;
   private cssClasses = SmartCssClass;
   constructor() {
   }
@@ -66,6 +68,13 @@ export class NgSmartDatatableComponent implements OnInit {
   ngOnInit() {
     this.actionsColumnOrder = this.actionsColumnOrder === null ? this.model.properties.length : this.actionsColumnOrder;
     this.tempData = this.data;
+    if (!this.model.actions) {
+      this.model.actions = SmartModel.initializeDefaultActions();
+    } else {
+      this.model.actions = [...this.model.actions, ...SmartModel.initializeDefaultActions()];
+    }
+    this.addActionButton = this.model.actions.find(a => a.key === 'SmartAdd');
+
     this.refreshTable();
     this.activeSortProperty = {
       isAsc: true,
@@ -73,7 +82,6 @@ export class NgSmartDatatableComponent implements OnInit {
     };
     this.beforeActionProperties = this.model.properties.slice(0, this.actionsColumnOrder);
     this.afterActionProperties = this.model.properties.slice(this.actionsColumnOrder, this.model.properties.length);
-
   }
   initializePages() {
     this.pages = [];

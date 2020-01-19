@@ -1,5 +1,6 @@
 <smart-length (lengthChangeEvent)="updateLength($event)" [length]="length" [lengthMenu]="lengthMenu"></smart-length>
-<smart-add style="float: right;margin-left: 10px;" (btnAddClickEvent)="btnAddClick()"></smart-add>
+<smart-add [btnAddContent]="addActionButton.content" *ngIf="addActionButton.visible"
+    style="float: right;margin-left: 10px;" (btnAddClickEvent)="btnAddClick()"></smart-add>
 <smart-filter style="float: right;" (filterChangeEvent)="updateFilter($event)"></smart-filter>
 <table class="smart-datatable" [ngClass]="{
     'bootstrap3-table bootstrap3-table-bordered bootstrap3-table-striped bootstrap3-table-hover': cssClass === cssClasses.Bootstrap3,

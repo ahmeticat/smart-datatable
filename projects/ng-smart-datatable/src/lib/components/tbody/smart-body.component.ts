@@ -8,7 +8,7 @@ import { DomSanitizer, SafeHtml } from '@angular/platform-browser';
   templateUrl: './smart-body.component.html',
   styleUrls: ['./smart-body.component.scss']
 })
-export class SmartBodyComponent {
+export class SmartBodyComponent implements OnInit {
 
   @Input() data: any[];
   @Input() model: SmartModel;
@@ -20,8 +20,14 @@ export class SmartBodyComponent {
   @Output() btnDeleteClickEvent: EventEmitter<any> = new EventEmitter<any>();
   @Output() colDefEvent: EventEmitter<any> = new EventEmitter<any>();
 
+  editVisibility: boolean;
+  deleteVisibility: boolean;
   constructor(private sanitizer: DomSanitizer) {
+  }
 
+  ngOnInit() {
+    this.editVisibility = this.model.actions.find(a => a.key === 'SmartEdit').visible;
+    this.deleteVisibility = this.model.actions.find(a => a.key === 'SmartDelete').visible;
   }
 
   getValue(item: any, key: string): string {
