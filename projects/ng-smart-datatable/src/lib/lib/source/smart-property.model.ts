@@ -7,5 +7,6 @@ export class SmartProperty {
     inlineSearch?= false;
     searchable?= true;
     visible?= true;
+    width?: string;
     type?: SmartDataTypes = SmartDataTypes.Text;
 }

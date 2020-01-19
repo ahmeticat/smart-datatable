@@ -1,7 +1,6 @@
 <tr>
-    <th [style.width]="getLength() + '%'"
-        *ngFor="let property of beforeActionProperties;let i=index" (click)="sortClick(property)"
-        [ngClass]="{
+    <th [style.width]="property.width ? property.width: getLength() + '%'"
+        *ngFor="let property of beforeActionProperties;let i=index" (click)="sortClick(property)" [ngClass]="{
         'sorting_asc': activeSortProperty.property === property.key && activeSortProperty.isAsc,
         'sorting_desc': activeSortProperty.property === property.key && !activeSortProperty.isAsc,
         'sorting': activeSortProperty.property !== property.key
@@ -14,8 +13,8 @@
     <th *ngIf="showActions">
         Actions
     </th>
-    <th [style.width]="getLength() + '%'"
-        *ngFor="let property of afterActionProperties;let i=index"
+    <th [style.width]="property.width ? property.width: getLength() + '%'"
+         *ngFor="let property of afterActionProperties;let i=index"
         (click)="sortClick(property)" [ngClass]="{
         'sorting_asc': activeSortProperty.property === property.key && activeSortProperty.isAsc,
         'sorting_desc': activeSortProperty.property === property.key && !activeSortProperty.isAsc,

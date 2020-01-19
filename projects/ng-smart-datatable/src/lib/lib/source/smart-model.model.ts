@@ -1,5 +1,6 @@
 import { SmartProperty } from './smart-property.model';
 import { SmartAction } from './smart-action-property.model';
+import { ActionType } from './smart-action-type.model';
 
 export class SmartModel {
     properties: SmartProperty[];
@@ -9,17 +10,17 @@ export class SmartModel {
     static initializeDefaultActions() {
         return [
             {
-                key: 'SmartAdd',
+                type: ActionType.Add,
                 content: 'Add',
                 visible: true
             },
             {
-                key: 'SmartEdit',
+                type: ActionType.Edit,
                 content: 'Edit',
                 visible: true
             },
             {
-                key: 'SmartDelete',
+                type: ActionType.Delete,
                 content: 'Delete',
                 visible: true
             }

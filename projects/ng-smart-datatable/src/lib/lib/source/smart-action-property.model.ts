@@ -1,5 +1,8 @@
+import { ActionType } from './smart-action-type.model';
+
 export class SmartAction {
-    key: string;
+    type: ActionType;
     content: string;
     visible: boolean;
+    click?: (item) => void;
 }

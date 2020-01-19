@@ -1,6 +1,7 @@
 import { Component } from '@angular/core';
 import { SmartModel } from 'projects/ng-smart-datatable/src/lib/lib/source/smart-model.model';
 import { SmartCssClass } from 'projects/ng-smart-datatable/src/lib/lib/helpers/smart-css-class.model';
+import { ActionType } from 'projects/ng-smart-datatable/src/lib/lib/source/smart-action-type.model';
 
 @Component({
   selector: 'app-root',
@@ -188,23 +189,26 @@ export class AppComponent {
         title: 'Adı',
         key: 'name',
         inlineSearch: true,
-        smartHtml: this.colDef
+        smartHtml: this.colDef,
+        width: '40%'
       },
       {
         title: 'Soyadı',
         key: 'surname',
+        width: '500px'
       }
     ],
     actions: [
       {
-        key: 'SmartAdd',
+        type: ActionType.Add,
         content: '<input type="button" value="Add" class="add-item">',
         visible: true
       },
       {
-        key: 'Custom',
+        type: ActionType.Custom,
         content: 'First Custom Button',
-        visible: true
+        visible: true,
+        click: this.btnCustomClick
       },
     ]
   };
@@ -220,4 +224,9 @@ export class AppComponent {
   btnAddClick() {
     alert(`Add Click`);
   }
+
+  btnCustomClick(item: any) {
+    alert(`Custom Click : ${JSON.stringify(item)}`);
+  }
+
 }

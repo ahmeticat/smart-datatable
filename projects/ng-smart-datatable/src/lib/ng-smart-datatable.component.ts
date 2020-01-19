@@ -7,6 +7,7 @@ import { SmartSort } from './lib/helpers/smart-sort.model';
 import { SmartFilter } from './lib/helpers/smart-filter.model';
 import { SmartProperty } from './lib/source/smart-property.model';
 import { SmartAction } from './lib/source/smart-action-property.model';
+import { ActionType } from './lib/source/smart-action-type.model';
 
 
 @Component({
@@ -73,7 +74,7 @@ export class NgSmartDatatableComponent implements OnInit {
     } else {
       this.model.actions = [...this.model.actions, ...SmartModel.initializeDefaultActions()];
     }
-    this.addActionButton = this.model.actions.find(a => a.key === 'SmartAdd');
+    this.addActionButton = this.model.actions.find(a => a.type === ActionType.Add);
 
     this.refreshTable();
     this.activeSortProperty = {
