@@ -11,139 +11,173 @@ export class AppComponent {
   data = [
     {
       name: 'Ahmet',
-      surname: 'İCAT'
+      surname: 'İCAT',
+      email: 'ahmet@gmail.com'
     },
     {
       name: 'Mehmet',
-      surname: 'DENİZ'
+      surname: 'DENİZ',
+      email: 'mehmet@gmail.com'
     },
     {
       name: 'Bilal',
-      surname: 'TOSUN'
+      surname: 'TOSUN',
+      email: 'bilal@gmail.com'
     }, {
       name: 'İsmail',
-      surname: 'KAŞAN'
+      surname: 'KAŞAN',
+      email: 'ismail@gmail.com'
     },
     {
       name: 'Ahmet',
-      surname: 'İCAT'
+      surname: 'İCAT',
+      email: 'ahmet@gmail.com'
     },
     {
       name: 'Mehmet',
-      surname: 'DENİZ'
+      surname: 'DENİZ',
+      email: 'mehmet@gmail.com'
     },
     {
       name: 'Bilal',
-      surname: 'TOSUN'
+      surname: 'TOSUN',
+      email: 'bilal@gmail.com'
     }, {
       name: 'İsmail',
-      surname: 'KAŞAN'
+      surname: 'KAŞAN',
+      email: 'ismail@gmail.com'
     },
     {
       name: 'Ayşe',
-      surname: 'YILMAZ'
+      surname: 'YILMAZ',
+      email: 'ayse@gmail.com'
     },
     {
       name: 'Ahmet',
-      surname: 'İCAT'
+      surname: 'İCAT',
+      email: 'ahmet@gmail.com'
     },
     {
       name: 'Mehmet',
-      surname: 'DENİZ'
+      surname: 'DENİZ',
+      email: 'mehmet@gmail.com'
     },
     {
       name: 'Bilal',
-      surname: 'TOSUN'
+      surname: 'TOSUN',
+      email: 'bilal@gmail.com'
     }, {
       name: 'İsmail',
-      surname: 'KAŞAN'
+      surname: 'KAŞAN',
+      email: 'ismail@gmail.com'
     },
     {
       name: 'Ayşe',
-      surname: 'YILMAZ'
+      surname: 'YILMAZ',
+      email: 'ayse@gmail.com'
     },
     {
       name: 'Ahmet',
-      surname: 'İCAT'
+      surname: 'İCAT',
+      email: 'ahmet@gmail.com'
     },
     {
       name: 'Ayşe',
-      surname: 'YILMAZ'
+      surname: 'YILMAZ',
+      email: 'ayse@gmail.com'
     },
     {
       name: 'Ahmet',
-      surname: 'İCAT'
+      surname: 'İCAT',
+      email: 'ahmet@gmail.com'
     },
     {
       name: 'Mehmet',
-      surname: 'DENİZ'
+      surname: 'DENİZ',
+      email: 'mehmet@gmail.com'
     },
     {
       name: 'Bilal',
-      surname: 'TOSUN'
+      surname: 'TOSUN',
+      email: 'bilal@gmail.com'
     }, {
       name: 'İsmail',
-      surname: 'KAŞAN'
+      surname: 'KAŞAN',
+      email: 'ismail@gmail.com'
     },
     {
       name: 'Ayşe',
-      surname: 'YILMAZ'
+      surname: 'YILMAZ',
+      email: 'ayse@gmail.com'
     },
     {
       name: 'Ahmet',
-      surname: 'İCAT'
+      surname: 'İCAT',
+      email: 'ahmet@gmail.com'
     },
     {
       name: 'Mehmet',
-      surname: 'DENİZ'
+      surname: 'DENİZ',
+      email: 'mehmet@gmail.com'
     },
     {
       name: 'Bilal',
-      surname: 'TOSUN'
+      surname: 'TOSUN',
+      email: 'bilal@gmail.com'
     }, {
       name: 'İsmail',
-      surname: 'KAŞAN'
+      surname: 'KAŞAN',
+      email: 'ismail@gmail.com'
     },
     {
       name: 'Ayşe',
-      surname: 'YILMAZ'
+      surname: 'YILMAZ',
+      email: 'ayse@gmail.com'
     },
     {
       name: 'Mehmet',
-      surname: 'DENİZ'
+      surname: 'DENİZ',
+      email: 'mehmet@gmail.com'
     },
     {
       name: 'Bilal',
-      surname: 'TOSUN'
+      surname: 'TOSUN',
+      email: 'bilal@gmail.com'
     }, {
       name: 'İsmail',
-      surname: 'KAŞAN'
+      surname: 'KAŞAN',
+      email: 'ismail@gmail.com'
     },
     {
       name: 'Ayşe',
-      surname: 'YILMAZ'
+      surname: 'YILMAZ',
+      email: 'ayse@gmail.com'
     },
     {
       name: 'Mehmet',
-      surname: 'DENİZ'
+      surname: 'DENİZ',
+      email: 'mehmet@gmail.com'
     },
     {
       name: 'Bilal',
-      surname: 'TOSUN'
+      surname: 'TOSUN',
+      email: 'bilal@gmail.com'
     }, {
       name: 'İsmail',
-      surname: 'KAŞAN'
+      surname: 'KAŞAN',
+      email: 'ismail@gmail.com'
     },
     {
       name: 'Ayşe',
-      surname: 'YILMAZ'
+      surname: 'YILMAZ',
+      email: 'ayse@gmail.com'
     }
   ];
 
   cssClass = SmartCssClass.Bootstrap4;
 
   colDef = (item, key) => {
-    return `<b>${item[`${key}`]}</b>`;
+    return `<div class="name-cell-column"><a href="${item[`${key}`]}">${item[`${key}`]}</a></div>`;
   }
 
 

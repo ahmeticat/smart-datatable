@@ -1,7 +1,14 @@
 :host {
   ::ng-deep {
+    .smart-add-button .add-item {
+      margin-top: -5px;
+    }
     .add-item {
       color: #ac12ba;
+    }
+    
+    .name-cell-column a{
+        color:black;
     }
   }
 }
