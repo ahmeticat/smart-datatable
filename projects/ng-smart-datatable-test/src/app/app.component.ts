@@ -218,6 +218,12 @@ export class AppComponent {
         type: SmartButtonType.Custom,
         visible: true,
         action: this.btnCustomButtonClick
+      },
+      {
+        content: 'Excel Test',
+        type: SmartButtonType.Excel,
+        visible: true,
+        action: this.btnCustomExcelButtonClick
       }
     ]
   };
@@ -240,5 +246,9 @@ export class AppComponent {
 
   btnCustomButtonClick() {
     alert(`Custom Button Click`);
+  }
+
+  btnCustomExcelButtonClick() {
+    alert(`Custom Excel Button Click`);
   }
 }
