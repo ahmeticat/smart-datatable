@@ -8,7 +8,12 @@ import { SmartFilter } from './lib/helpers/smart-filter.model';
 import { SmartProperty } from './lib/source/smart-property.model';
 import { SmartAction } from './lib/source/smart-action-property.model';
 import { ActionType } from './lib/source/smart-action-type.model';
-
+import { ExcelService } from './extensions/buttons/excel/excel.service';
+import { SmartButtonType } from './lib/source/smart-button-type.model';
+import { Guid } from './lib/helpers/smart-guid.model';
+import { PdfService } from './extensions/buttons/pdf/pdf.service';
+import { UTF8 } from './lib/helpers/smart-utf8.model';
+import { CopyService } from './extensions/buttons/copy/copy.service';
 
 @Component({
   selector: 'ng-smart-datatable',
@@ -47,7 +52,9 @@ export class NgSmartDatatableComponent implements OnInit {
 
   @Input() activePage = 1;
   @Input() showActions = true;
+  @Input() showButtons = false;
   @Input() length = 10;
+  @Input() tableId: string;
   @Input() actionsColumnOrder?: number = null;
   @Output() btnAddClickEvent: EventEmitter<any> = new EventEmitter<any>();
   @Output() btnEditClickEvent: EventEmitter<any> = new EventEmitter<any>();
@@ -62,20 +69,21 @@ export class NgSmartDatatableComponent implements OnInit {
   beforeActionProperties: SmartProperty[] = [];
   afterActionProperties: SmartProperty[] = [];
   addActionButton: SmartAction;
+  showCopyMessage = false;
   private cssClasses = SmartCssClass;
-  constructor() {
+  constructor(
+    private excelService: ExcelService,
+    private pdfService: PdfService,
+    private copyService: CopyService
+  ) {
   }
 
   ngOnInit() {
+    this.tableId = this.tableId ? this.tableId : Guid.newGuid();
     this.actionsColumnOrder = this.actionsColumnOrder === null ? this.model.properties.length : this.actionsColumnOrder;
     this.tempData = this.data;
-    if (!this.model.actions) {
-      this.model.actions = SmartModel.initializeDefaultActions();
-    } else {
-      this.model.actions = [...this.model.actions, ...SmartModel.initializeDefaultActions()];
-    }
-    this.addActionButton = this.model.actions.find(a => a.type === ActionType.Add);
-
+    this.initializeActions();
+    this.initializeButtons();
     this.refreshTable();
     this.activeSortProperty = {
       isAsc: true,
@@ -89,6 +97,23 @@ export class NgSmartDatatableComponent implements OnInit {
     for (let index = 0; index < this.pageCount; index++) {
       this.pages.push(index + 1);
     }
+  }
+
+  initializeButtons() {
+    if (!this.model.buttons) {
+      this.model.buttons = SmartModel.initializeDefaultButtons();
+    } else {
+      this.model.buttons = [...this.model.buttons, ...SmartModel.initializeDefaultButtons()];
+    }
+  }
+
+  initializeActions() {
+    if (!this.model.actions) {
+      this.model.actions = SmartModel.initializeDefaultActions();
+    } else {
+      this.model.actions = [...this.model.actions, ...SmartModel.initializeDefaultActions()];
+    }
+    this.addActionButton = this.model.actions.find(a => a.type === ActionType.Add);
   }
 
   updatePageData() {
@@ -149,5 +174,47 @@ export class NgSmartDatatableComponent implements OnInit {
   onPropertyChanged(event) {
     this.tempData = SmartFilter.filter(this.data, (event.property as SmartProperty).key, event.text);
     this.refreshTable();
+  }
+
+  btnCopyClick() {
+    const table = document.getElementById(this.tableId);
+    this.copyService.copyText(UTF8.parseUTF(table.innerText));
+    this.showCopyMessage = true;
+    setTimeout(() => {
+      this.showCopyMessage = false;
+    }, 3000);
+  }
+
+  btnExcelClick() {
+    const excelExportData: any[] = this.data.map(item => {
+      const temp: any = new Object();
+      Object.keys(item).forEach(currentItem => {
+        const tempProperty: SmartProperty = this.model.properties.find(a => a.key === currentItem);
+        if (tempProperty) {
+          temp[tempProperty.title.replace(`'`, '')] = item[currentItem];
+        }
+      });
+      return temp;
+    });
+    this.excelService.exportAsExcelFile(excelExportData, this.model.buttons.find(a => a.type === SmartButtonType.Excel).title);
+  }
+
+  btnCsvClick() {
+    const excelExportData: any[] = this.data.map(item => {
+      const temp: any = new Object();
+      Object.keys(item).forEach(currentItem => {
+        const tempProperty: SmartProperty = this.model.properties.find(a => a.key === currentItem);
+        if (tempProperty) {
+          temp[tempProperty.title.replace(`'`, '')] = item[currentItem];
+        }
+      });
+      return temp;
+    });
+    this.excelService.exportAsCsvFile(excelExportData, this.model.buttons.find(a => a.type === SmartButtonType.Csv).title);
+  }
+
+  btnPdfClick() {
+    const table = document.getElementById(this.tableId);
+    this.pdfService.exportAsPdfFile(UTF8.parseUTF(table.outerHTML), this.model.buttons.find(a => a.type === SmartButtonType.Pdf).title);
   }
 }

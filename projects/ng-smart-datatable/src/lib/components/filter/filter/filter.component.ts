@@ -8,11 +8,11 @@ import { SmartLength } from '../../../lib/helpers/smart-length.model';
 })
 export class FilterComponent {
 
-  filterValue:string = '';
+  filterValue: string = '';
   @Output() filterChangeEvent: EventEmitter<string> = new EventEmitter<string>();
   constructor() { }
 
-  onKeyup(){
+  onKeyup() {
     this.filterChangeEvent.emit(this.filterValue);
   }
 

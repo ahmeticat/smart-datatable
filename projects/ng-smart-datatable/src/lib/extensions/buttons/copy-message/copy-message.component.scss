@@ -1,0 +1,25 @@
+:host {
+  ::ng-deep {
+    .smart-info {
+      position: absolute;
+      left: calc(50% - 100px);
+      top: 40%;
+      border: 1px solid #dedede;
+      opacity: 0.9;
+    }
+
+    .smart-info-header {
+      background: #dedede;
+      text-align: center;
+      font-size: 34px;
+      padding: 8px;
+      font-weight: bold;
+    }
+
+    .smart-info-message {
+      background: #fefefe;
+      text-align: center;
+      font-size: 20px;
+    }
+  }
+}

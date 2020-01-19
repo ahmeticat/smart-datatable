@@ -1,0 +1,14 @@
+:host {
+  ::ng-deep {
+    .smart-extension-button button {
+      padding-top: 3px;
+      padding-bottom: 3px;
+      margin: 1px;
+      color: #56505e;
+      border-radius: 5px;
+    }
+    .smart-extension-button {
+        margin-top: -5px;
+    }
+  }
+}

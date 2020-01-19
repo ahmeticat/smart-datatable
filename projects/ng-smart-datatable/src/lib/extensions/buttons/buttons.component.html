@@ -1,0 +1,6 @@
+<div class="smart-extension-button">
+  <smart-pdf [pdfButton]="pdfButton" (btnPdfClickEvent)="btnPdfClickEvent.emit()" *ngIf="pdfButton.visible"></smart-pdf>
+  <smart-copy [copyButton]="copyButton" (btnCopyClickEvent)="btnCopyClickEvent.emit()" *ngIf="copyButton.visible"></smart-copy>
+  <smart-csv [csvButton]="csvButton" (btnCsvClickEvent)="btnCsvClickEvent.emit()" *ngIf="csvButton.visible"></smart-csv>
+  <smart-excel [excelButton]="excelButton" (btnExcelClickEvent)="btnExcelClickEvent.emit()" *ngIf="excelButton.visible"></smart-excel>
+</div>
