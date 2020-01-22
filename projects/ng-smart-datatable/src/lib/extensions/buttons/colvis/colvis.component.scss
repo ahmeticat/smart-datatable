@@ -1,0 +1,48 @@
+:host {
+  ::ng-deep {
+    .dt-button-smart-background {
+      background: radial-gradient(ellipse farthest-corner at center, rgba(0, 0, 0, 0.3) 0%, rgba(0, 0, 0, 0.7) 100%);
+      z-index: 2001;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+    }
+
+    div.dt-button-smart-collection {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 150px;
+      margin-top: 3px;
+      padding: 8px 8px 4px 8px;
+      border: 1px solid #ccc;
+      border: 1px solid rgba(0, 0, 0, 0.4);
+      background-color: white;
+      overflow: hidden;
+      z-index: 2002;
+      border-radius: 5px;
+      box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.3);
+      box-sizing: border-box;
+    }
+    .smart-menu {
+      display: block !important;
+    }
+
+    button.buttons-smart-columnVisibility {
+      width: 100%;
+      float: none;
+      display: block;
+      left: 0;
+      right: 0;
+      margin-bottom: 4px;
+      margin-right: 0;
+      position: relative;
+    }
+
+    button.buttons-smart-columnVisibility.active {
+      background-color: #dedede;
+    }
+  }
+}

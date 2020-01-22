@@ -5,6 +5,9 @@
   <smart-csv [csvButton]="csvButton" (btnCsvClickEvent)="btnCsvClickEvent.emit()" *ngIf="csvButton.visible"></smart-csv>
   <smart-excel [excelButton]="excelButton" (btnExcelClickEvent)="btnExcelClickEvent.emit()" *ngIf="excelButton.visible">
   </smart-excel>
+  <smart-colvis [colvisButton]="colvisButton" [columns]="columns" (btnColvisClickEvent)="btnColvisClick($event)"
+    *ngIf="colvisButton.visible">
+  </smart-colvis>
   <button *ngFor="let button of customButtons" class="smart-excel-button {{button.htmlClass}}" (click)="button.action()"
     [innerHTML]="getContent(button.content)"></button>
 </div>

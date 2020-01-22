@@ -1,0 +1,10 @@
+<button #btnColvis class="smart-copy-button {{colvisButton.htmlClass}}" (click)="btnColvisClick(btnColvis)"
+  [innerHTML]="getContent()"></button>
+<div class="dt-button-smart-background" *ngIf="showBackground"></div>
+<div #ParentMenu class="dt-button-smart-collection" *ngIf="showBackground" [ngStyle]="{'left': left + 'px','top':top + 'px'}">
+  <div class="smart-menu">
+    <button (click)="btnPropertyClick(column)" *ngFor="let column of columns" class="dt-smart-button buttons-smart-columnVisibility"
+      [ngClass]="{'active': column.visible}"><span>{{column.title}}</span>
+    </button>
+  </div>
+</div>

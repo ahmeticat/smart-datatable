@@ -55,6 +55,12 @@ export class SmartModel {
                 visible: true,
                 title: 'Smart Copy'
             },
+            {
+                type: SmartButtonType.Colvis,
+                content: 'Columns',
+                visible: true,
+                title: ''
+            }
         ] as SmartButton[];
     }
 }

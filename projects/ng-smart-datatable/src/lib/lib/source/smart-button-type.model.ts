@@ -3,5 +3,6 @@ export enum SmartButtonType {
     Pdf,
     Copy,
     Csv,
+    Colvis,
     Custom
 }

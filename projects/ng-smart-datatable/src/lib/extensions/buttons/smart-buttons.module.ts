@@ -7,6 +7,7 @@ import { CsvComponent } from './csv/csv.component';
 import { ButtonsComponent } from './buttons.component';
 import { ExcelService } from './excel/excel.service';
 import { CopyMessageComponent } from './copy-message/copy-message.component';
+import { ColvisComponent } from './colvis/colvis.component';
 
 
 @NgModule({
@@ -16,7 +17,8 @@ import { CopyMessageComponent } from './copy-message/copy-message.component';
     PdfComponent,
     CsvComponent,
     ButtonsComponent,
-    CopyMessageComponent
+    CopyMessageComponent,
+    ColvisComponent
   ],
   imports: [
     CommonModule
@@ -27,7 +29,8 @@ import { CopyMessageComponent } from './copy-message/copy-message.component';
     PdfComponent,
     CsvComponent,
     ButtonsComponent,
-    CopyMessageComponent
+    CopyMessageComponent,
+    ColvisComponent
   ]
 })
 export class SmartExtensionButtonsModule { }

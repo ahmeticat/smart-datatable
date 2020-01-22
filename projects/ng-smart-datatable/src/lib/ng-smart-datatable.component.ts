@@ -89,14 +89,19 @@ export class NgSmartDatatableComponent implements OnInit {
       isAsc: true,
       property: this.model.properties[0].key
     };
-    this.beforeActionProperties = this.model.properties.slice(0, this.actionsColumnOrder);
-    this.afterActionProperties = this.model.properties.slice(this.actionsColumnOrder, this.model.properties.length);
+    this.initializeColumns();
   }
   initializePages() {
     this.pages = [];
     for (let index = 0; index < this.pageCount; index++) {
       this.pages.push(index + 1);
     }
+  }
+
+  initializeColumns() {
+    this.beforeActionProperties = this.model.properties.slice(0, this.actionsColumnOrder).filter(a => a.visible !== false);
+    this.afterActionProperties = this.model.properties
+      .slice(this.actionsColumnOrder, this.model.properties.length).filter(a => a.visible !== false);
   }
 
   initializeButtons() {
@@ -216,5 +221,13 @@ export class NgSmartDatatableComponent implements OnInit {
   btnPdfClick() {
     const table = document.getElementById(this.tableId);
     this.pdfService.exportAsPdfFile(UTF8.parseUTF(table.outerHTML), this.model.buttons.find(a => a.type === SmartButtonType.Pdf).title);
+  }
+
+  btnColvisClick(property: SmartProperty) {
+    if (property.key === 'smart-action') {
+      this.showActions = !this.showActions;
+    } else {
+      this.initializeColumns();
+    }
   }
 }
