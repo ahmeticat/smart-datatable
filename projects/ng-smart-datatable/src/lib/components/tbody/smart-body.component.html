@@ -3,9 +3,10 @@
         [innerHTML]="property.smartHtml !== undefined ? getHtml(item,property.smartHtml,property.key) :  getValue(item,property.key)">
     </td>
     <td *ngIf="showActions">
-        <smart-edit *ngIf="editVisibility" (btnEditClickEvent)="btnEditClick(item)">
+        <smart-edit [action]="editAction" *ngIf="editAction.visible" (btnEditClickEvent)="btnEditClick(item)">
         </smart-edit>
-        <smart-delete *ngIf="deleteVisibility" (btnDeleteClickEvent)="btnDeleteClick(item)"></smart-delete>
+        <smart-delete [action]="deleteAction" *ngIf="deleteAction.visible" (btnDeleteClickEvent)="btnDeleteClick(item)">
+        </smart-delete>
         <a href="javascript:;" *ngFor="let action of customActions" class="smart-action-button smart-custom-button"
             (click)="action.click(item)" [innerHTML]="getButtonHtml(action.content)"></a>
 

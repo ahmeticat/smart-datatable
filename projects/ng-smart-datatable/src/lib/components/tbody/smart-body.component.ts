@@ -22,14 +22,14 @@ export class SmartBodyComponent implements OnInit {
   @Output() btnDeleteClickEvent: EventEmitter<any> = new EventEmitter<any>();
   @Output() colDefEvent: EventEmitter<any> = new EventEmitter<any>();
   customActions: SmartAction[];
-  editVisibility: boolean;
-  deleteVisibility: boolean;
+  editAction: SmartAction;
+  deleteAction: SmartAction;
   constructor(private sanitizer: DomSanitizer) {
   }
 
   ngOnInit() {
-    this.editVisibility = this.model.actions.find(a => a.type === ActionType.Edit).visible;
-    this.deleteVisibility = this.model.actions.find(a => a.type === ActionType.Delete).visible;
+    this.editAction = this.model.actions.find(a => a.type === ActionType.Edit);
+    this.deleteAction = this.model.actions.find(a => a.type === ActionType.Delete);
     this.customActions = this.model.actions.filter(a => a.type === ActionType.Custom);
   }
 

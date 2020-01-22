@@ -206,6 +206,11 @@ export class AppComponent {
         visible: true
       },
       {
+        type: ActionType.Delete,
+        content: '<span style="color:red">Delete</span>',
+        visible: true
+      },
+      {
         type: ActionType.Custom,
         content: 'First Custom Button',
         visible: true,
