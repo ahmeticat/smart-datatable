@@ -3,6 +3,7 @@ import { SmartModel } from '../../../lib/source/smart-model.model';
 import { SmartSortProperty } from '../../../lib/source/smart-sort-property.model';
 import { SmartProperty } from '../../../lib/source/smart-property.model';
 
+
 @Component({
   selector: '[smart-head]',
   templateUrl: './smart-head.component.html',
@@ -14,6 +15,7 @@ export class SmartHeadComponent {
   @Input() activeSortProperty: SmartSortProperty;
   @Input() showActions = true;
   @Input() actionsColumnOrder: number;
+  @Input() actionsColumnWidth = '100px';
   @Output() sortChangeEvent: EventEmitter<SmartSortProperty> = new EventEmitter<SmartSortProperty>();
   @Output() propertyChangeEvent: EventEmitter<any> = new EventEmitter<any>();
   @Input() beforeActionProperties: SmartProperty[];

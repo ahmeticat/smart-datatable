@@ -1,8 +1,7 @@
 import { Component } from '@angular/core';
-import { SmartModel } from 'projects/ng-smart-datatable/src/lib/lib/source/smart-model.model';
-import { SmartCssClass } from 'projects/ng-smart-datatable/src/lib/lib/helpers/smart-css-class.model';
 import { ActionType } from 'projects/ng-smart-datatable/src/lib/lib/source/smart-action-type.model';
 import { SmartButtonType } from 'projects/ng-smart-datatable/src/lib/lib/source/smart-button-type.model';
+import { SmartModel } from 'projects/ng-smart-datatable/src/lib/lib/source/smart-model.model';
 
 @Component({
   selector: 'app-root',
@@ -12,171 +11,405 @@ import { SmartButtonType } from 'projects/ng-smart-datatable/src/lib/lib/source/
 export class AppComponent {
   data = [
     {
-      name: 'Ahmet',
-      surname: 'İCAT',
-      email: 'ahmet@gmail.com'
+      Name: 'Airi',
+      Surname: 'Satou',
+      Position: 'Accountant',
+      Office: 'Tokyo',
+      Age: '33'
     },
     {
-      name: 'Mehmet',
-      surname: 'DENİZ',
-      email: 'mehmet@gmail.com'
+      Name: 'Angelica',
+      Surname: 'Ramos',
+      Position: 'Chief Executive Officer (CEO)',
+      Office: 'London',
+      Age: '47'
     },
     {
-      name: 'Bilal',
-      surname: 'TOSUN',
-      email: 'bilal@gmail.com'
-    }, {
-      name: 'İsmail',
-      surname: 'KAŞAN',
-      email: 'ismail@gmail.com'
+      Name: 'Ashton',
+      Surname: 'Cox',
+      Position: 'Junior Technical Author',
+      Office: 'San Francisco',
+      Age: '66'
     },
     {
-      name: 'Ahmet',
-      surname: 'İCAT',
-      email: 'ahmet@gmail.com'
+      Name: 'Bradley',
+      Surname: 'Greer',
+      Position: 'Software Engineer',
+      Office: 'London',
+      Age: '41'
     },
     {
-      name: 'Mehmet',
-      surname: 'DENİZ',
-      email: 'mehmet@gmail.com'
+      Name: 'Brenden',
+      Surname: 'Wagner',
+      Position: 'Software Engineer',
+      Office: 'San Francisco',
+      Age: '28'
     },
     {
-      name: 'Bilal',
-      surname: 'TOSUN',
-      email: 'bilal@gmail.com'
-    }, {
-      name: 'İsmail',
-      surname: 'KAŞAN',
-      email: 'ismail@gmail.com'
+      Name: 'Brielle',
+      Surname: 'Williamson',
+      Position: 'Integration Specialist',
+      Office: 'New York',
+      Age: '61'
     },
     {
-      name: 'Ayşe',
-      surname: 'YILMAZ',
-      email: 'ayse@gmail.com'
+      Name: 'Bruno',
+      Surname: 'Nash',
+      Position: 'Software Engineer',
+      Office: 'London',
+      Age: '38'
     },
     {
-      name: 'Ahmet',
-      surname: 'İCAT',
-      email: 'ahmet@gmail.com'
+      Name: 'Caesar',
+      Surname: 'Vance',
+      Position: 'Pre-Sales Support',
+      Office: 'New York',
+      Age: '21'
     },
     {
-      name: 'Mehmet',
-      surname: 'DENİZ',
-      email: 'mehmet@gmail.com'
+      Name: 'Cara',
+      Surname: 'Stevens',
+      Position: 'Sales Assistant',
+      Office: 'New York',
+      Age: '46'
     },
     {
-      name: 'Bilal',
-      surname: 'TOSUN',
-      email: 'bilal@gmail.com'
-    }, {
-      name: 'İsmail',
-      surname: 'KAŞAN',
-      email: 'ismail@gmail.com'
+      Name: 'Cedric',
+      Surname: 'Kelly',
+      Position: 'Senior Javascript Developer',
+      Office: 'Edinburgh',
+      Age: '22'
     },
     {
-      name: 'Ayşe',
-      surname: 'YILMAZ',
-      email: 'ayse@gmail.com'
+      Name: 'Charde',
+      Surname: 'Marshall',
+      Position: 'Regional Director',
+      Office: 'San Francisco',
+      Age: '36'
     },
     {
-      name: 'Ahmet',
-      surname: 'İCAT',
-      email: 'ahmet@gmail.com'
+      Name: 'Colleen',
+      Surname: 'Hurst',
+      Position: 'Javascript Developer',
+      Office: 'San Francisco',
+      Age: '39'
     },
     {
-      name: 'Ayşe',
-      surname: 'YILMAZ',
-      email: 'ayse@gmail.com'
+      Name: 'Dai',
+      Surname: 'Rios',
+      Position: 'Personnel Lead',
+      Office: 'Edinburgh',
+      Age: '35'
     },
     {
-      name: 'Ahmet',
-      surname: 'İCAT',
-      email: 'ahmet@gmail.com'
+      Name: 'Donna',
+      Surname: 'Snider',
+      Position: 'Customer Support',
+      Office: 'New York',
+      Age: '27'
     },
     {
-      name: 'Mehmet',
-      surname: 'DENİZ',
-      email: 'mehmet@gmail.com'
+      Name: 'Doris',
+      Surname: 'Wilder',
+      Position: 'Sales Assistant',
+      Office: 'Sydney',
+      Age: '23'
     },
     {
-      name: 'Bilal',
-      surname: 'TOSUN',
-      email: 'bilal@gmail.com'
-    }, {
-      name: 'İsmail',
-      surname: 'KAŞAN',
-      email: 'ismail@gmail.com'
+      Name: 'Finn',
+      Surname: 'Camacho',
+      Position: 'Support Engineer',
+      Office: 'San Francisco',
+      Age: '47'
     },
     {
-      name: 'Ayşe',
-      surname: 'YILMAZ',
-      email: 'ayse@gmail.com'
+      Name: 'Fiona',
+      Surname: 'Green',
+      Position: 'Chief Operating Officer (COO)',
+      Office: 'San Francisco',
+      Age: '48'
     },
     {
-      name: 'Ahmet',
-      surname: 'İCAT',
-      email: 'ahmet@gmail.com'
+      Name: 'Garrett',
+      Surname: 'Winters',
+      Position: 'Accountant',
+      Office: 'Tokyo',
+      Age: '63'
     },
     {
-      name: 'Mehmet',
-      surname: 'DENİZ',
-      email: 'mehmet@gmail.com'
+      Name: 'Gavin',
+      Surname: 'Cortez',
+      Position: 'Team Leader',
+      Office: 'San Francisco',
+      Age: '22'
     },
     {
-      name: 'Bilal',
-      surname: 'TOSUN',
-      email: 'bilal@gmail.com'
-    }, {
-      name: 'İsmail',
-      surname: 'KAŞAN',
-      email: 'ismail@gmail.com'
+      Name: 'Gavin',
+      Surname: 'Joyce',
+      Position: 'Developer',
+      Office: 'Edinburgh',
+      Age: '42'
     },
     {
-      name: 'Ayşe',
-      surname: 'YILMAZ',
-      email: 'ayse@gmail.com'
+      Name: 'Gloria',
+      Surname: 'Little',
+      Position: 'Systems Administrator',
+      Office: 'New York',
+      Age: '59'
     },
     {
-      name: 'Mehmet',
-      surname: 'DENİZ',
-      email: 'mehmet@gmail.com'
+      Name: 'Haley',
+      Surname: 'Kennedy',
+      Position: 'Senior Marketing Designer',
+      Office: 'London',
+      Age: '43'
     },
     {
-      name: 'Bilal',
-      surname: 'TOSUN',
-      email: 'bilal@gmail.com'
-    }, {
-      name: 'İsmail',
-      surname: 'KAŞAN',
-      email: 'ismail@gmail.com'
+      Name: 'Hermione',
+      Surname: 'Butler',
+      Position: 'Regional Director',
+      Office: 'London',
+      Age: '47'
     },
     {
-      name: 'Ayşe',
-      surname: 'YILMAZ',
-      email: 'ayse@gmail.com'
+      Name: 'Herrod',
+      Surname: 'Chandler',
+      Position: 'Sales Assistant',
+      Office: 'San Francisco',
+      Age: '59'
     },
     {
-      name: 'Mehmet',
-      surname: 'DENİZ',
-      email: 'mehmet@gmail.com'
+      Name: 'Hope',
+      Surname: 'Fuentes',
+      Position: 'Secretary',
+      Office: 'San Francisco',
+      Age: '41'
     },
     {
-      name: 'Bilal',
-      surname: 'TOSUN',
-      email: 'bilal@gmail.com'
-    }, {
-      name: 'İsmail',
-      surname: 'KAŞAN',
-      email: 'ismail@gmail.com'
+      Name: 'Howard',
+      Surname: 'Hatfield',
+      Position: 'Office Manager',
+      Office: 'San Francisco',
+      Age: '51'
     },
     {
-      name: 'Ayşe',
-      surname: 'YILMAZ',
-      email: 'ayse@gmail.com'
+      Name: 'Jackson',
+      Surname: 'Bradshaw',
+      Position: 'Director',
+      Office: 'New York',
+      Age: '65'
+    },
+    {
+      Name: 'Jena',
+      Surname: 'Gaines',
+      Position: 'Office Manager',
+      Office: 'London',
+      Age: '30'
+    },
+    {
+      Name: 'Jenette',
+      Surname: 'Caldwell',
+      Position: 'Development Lead',
+      Office: 'New York',
+      Age: '30'
+    },
+    {
+      Name: 'Jennifer',
+      Surname: 'Acosta',
+      Position: 'Junior Javascript Developer',
+      Office: 'Edinburgh',
+      Age: '43'
+    },
+    {
+      Name: 'Jennifer',
+      Surname: 'Chang',
+      Position: 'Regional Director',
+      Office: 'Singapore',
+      Age: '28'
+    },
+    {
+      Name: 'Jonas',
+      Surname: 'Alexander',
+      Position: 'Developer',
+      Office: 'San Francisco',
+      Age: '30'
+    },
+    {
+      Name: 'Lael',
+      Surname: 'Greer',
+      Position: 'Systems Administrator',
+      Office: 'London',
+      Age: '21'
+    },
+    {
+      Name: 'Martena',
+      Surname: 'Mccray',
+      Position: 'Post-Sales support',
+      Office: 'Edinburgh',
+      Age: '46'
+    },
+    {
+      Name: 'Michael',
+      Surname: 'Bruce',
+      Position: 'Javascript Developer',
+      Office: 'Singapore',
+      Age: '29'
+    },
+    {
+      Name: 'Michael',
+      Surname: 'Silva',
+      Position: 'Marketing Designer',
+      Office: 'London',
+      Age: '66'
+    },
+    {
+      Name: 'Michelle',
+      Surname: 'House',
+      Position: 'Integration Specialist',
+      Office: 'Sydney',
+      Age: '37'
+    },
+    {
+      Name: 'Olivia',
+      Surname: 'Liang',
+      Position: 'Support Engineer',
+      Office: 'Singapore',
+      Age: '64'
+    },
+    {
+      Name: 'Paul',
+      Surname: 'Byrd',
+      Position: 'Chief Financial Officer (CFO)',
+      Office: 'New York',
+      Age: '64'
+    },
+    {
+      Name: 'Prescott',
+      Surname: 'Bartlett',
+      Position: 'Technical Author',
+      Office: 'London',
+      Age: '27'
+    },
+    {
+      Name: 'Quinn',
+      Surname: 'Flynn',
+      Position: 'Support Lead',
+      Office: 'Edinburgh',
+      Age: '22'
+    },
+    {
+      Name: 'Rhona',
+      Surname: 'Davidson',
+      Position: 'Integration Specialist',
+      Office: 'Tokyo',
+      Age: '55'
+    },
+    {
+      Name: 'Sakura',
+      Surname: 'Yamamoto',
+      Position: 'Support Engineer',
+      Office: 'Tokyo',
+      Age: '37'
+    },
+    {
+      Name: 'Serge',
+      Surname: 'Baldwin',
+      Position: 'Data Coordinator',
+      Office: 'Singapore',
+      Age: '64'
+    },
+    {
+      Name: 'Shad',
+      Surname: 'Decker',
+      Position: 'Regional Director',
+      Office: 'Edinburgh',
+      Age: '51'
+    },
+    {
+      Name: 'Shou',
+      Surname: 'Itou',
+      Position: 'Regional Marketing',
+      Office: 'Tokyo',
+      Age: '20'
+    },
+    {
+      Name: 'Sonya',
+      Surname: 'Frost',
+      Position: 'Software Engineer',
+      Office: 'Edinburgh',
+      Age: '23'
+    },
+    {
+      Name: 'Suki',
+      Surname: 'Burks',
+      Position: 'Developer',
+      Office: 'London',
+      Age: '53'
+    },
+    {
+      Name: 'Tatyana',
+      Surname: 'Fitzpatrick',
+      Position: 'Regional Director',
+      Office: 'London',
+      Age: '19'
+    },
+    {
+      Name: 'Thor',
+      Surname: 'Walton',
+      Position: 'Developer',
+      Office: 'New York',
+      Age: '61'
+    },
+    {
+      Name: 'Tiger',
+      Surname: 'Nixon',
+      Position: 'System Architect',
+      Office: 'Edinburgh',
+      Age: '61'
+    },
+    {
+      Name: 'Timothy',
+      Surname: 'Mooney',
+      Position: 'Office Manager',
+      Office: 'London',
+      Age: '37'
+    },
+    {
+      Name: 'Unity',
+      Surname: 'Butler',
+      Position: 'Marketing Designer',
+      Office: 'San Francisco',
+      Age: '47'
+    },
+    {
+      Name: 'Vivian',
+      Surname: 'Harrell',
+      Position: 'Financial Controller',
+      Office: 'San Francisco',
+      Age: '62'
+    },
+    {
+      Name: 'Yuri',
+      Surname: 'Berry',
+      Position: 'Chief Marketing Officer (CMO)',
+      Office: 'New York',
+      Age: '40'
+    },
+    {
+      Name: 'Zenaida',
+      Surname: 'Frank',
+      Position: 'Software Engineer',
+      Office: 'New York',
+      Age: '63'
+    },
+    {
+      Name: 'Zorita',
+      Surname: 'Serrano',
+      Position: 'Software Engineer',
+      Office: 'San Francisco',
+      Age: '56'
     }
   ];
-
-  cssClass = SmartCssClass.Bootstrap4;
 
   colDef = (item, key) => {
     return `<div class="name-cell-column"><a href="${item[`${key}`]}">${item[`${key}`]}</a></div>`;
@@ -187,16 +420,21 @@ export class AppComponent {
   model: SmartModel = {
     properties: [
       {
-        title: 'Adı',
-        key: 'name',
+        title: 'NAME',
+        key: 'Name',
         inlineSearch: true,
         smartHtml: this.colDef,
-        width: '40%'
+        width: '300px'
       },
       {
-        title: 'Soyadı',
-        key: 'surname',
-        width: '500px'
+        title: 'SURNAME',
+        key: 'Surname',
+        width: '30%'
+      },
+      {
+        title: 'POSITION',
+        key: 'Position',
+        width: '30%'
       }
     ],
     actions: [

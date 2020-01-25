@@ -1,6 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
 import { SmartLength } from '../../../lib/helpers/smart-length.model';
-
 @Component({
   selector: 'smart-length',
   templateUrl: './length.component.html',

@@ -1,19 +1,19 @@
 import { Component, OnInit, Input, ViewEncapsulation, EventEmitter, Output } from '@angular/core';
 import { SmartModel } from './lib/source/smart-model.model';
-import { SmartCssClass } from './lib/helpers/smart-css-class.model';
-import { SmartLength } from './lib/helpers/smart-length.model';
-import { SmartSortProperty } from './lib/source/smart-sort-property.model';
 import { SmartSort } from './lib/helpers/smart-sort.model';
 import { SmartFilter } from './lib/helpers/smart-filter.model';
 import { SmartProperty } from './lib/source/smart-property.model';
 import { SmartAction } from './lib/source/smart-action-property.model';
-import { ActionType } from './lib/source/smart-action-type.model';
 import { ExcelService } from './extensions/buttons/excel/excel.service';
-import { SmartButtonType } from './lib/source/smart-button-type.model';
 import { Guid } from './lib/helpers/smart-guid.model';
 import { PdfService } from './extensions/buttons/pdf/pdf.service';
 import { UTF8 } from './lib/helpers/smart-utf8.model';
 import { CopyService } from './extensions/buttons/copy/copy.service';
+import { SmartCssClass } from './lib/helpers/smart-css-class.model';
+import { SmartLength } from './lib/helpers/smart-length.model';
+import { SmartSortProperty } from './lib/source/smart-sort-property.model';
+import { ActionType } from './lib/source/smart-action-type.model';
+import { SmartButtonType } from './lib/source/smart-button-type.model';
 
 @Component({
   selector: 'ng-smart-datatable',
@@ -25,7 +25,7 @@ export class NgSmartDatatableComponent implements OnInit {
 
   @Input() model: SmartModel;
   @Input() data: any[];
-  @Input() cssClass: SmartCssClass;
+  @Input() cssClass: SmartCssClass = SmartCssClass.Bootstrap4;
   @Input() lengthMenu =
     [
       {
@@ -55,6 +55,7 @@ export class NgSmartDatatableComponent implements OnInit {
   @Input() showButtons = false;
   @Input() length = 10;
   @Input() tableId: string;
+  @Input() actionsColumnWidth: string;
   @Input() actionsColumnOrder?: number = null;
   @Output() btnAddClickEvent: EventEmitter<any> = new EventEmitter<any>();
   @Output() btnEditClickEvent: EventEmitter<any> = new EventEmitter<any>();
@@ -70,7 +71,7 @@ export class NgSmartDatatableComponent implements OnInit {
   afterActionProperties: SmartProperty[] = [];
   addActionButton: SmartAction;
   showCopyMessage = false;
-  private cssClasses = SmartCssClass;
+  cssClasses = SmartCssClass;
   constructor(
     private excelService: ExcelService,
     private pdfService: PdfService,

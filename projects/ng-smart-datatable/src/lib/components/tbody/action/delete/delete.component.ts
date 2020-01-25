@@ -1,6 +1,6 @@
 import { Component, OnInit, EventEmitter, Output, Input } from '@angular/core';
-import { SmartAction } from 'projects/ng-smart-datatable/src/lib/lib/source/smart-action-property.model';
 import { SafeHtml, DomSanitizer } from '@angular/platform-browser';
+import { SmartAction } from '../../../../lib/source/smart-action-property.model';
 
 @Component({
   selector: 'smart-delete',

@@ -13,20 +13,7 @@
           "builder": "@angular-devkit/build-ng-packagr:build",
           "options": {
             "tsConfig": "projects/ng-smart-datatable/tsconfig.lib.json",
-            "project": "projects/ng-smart-datatable/ng-package.json",
-            "extractCss": true,
-            "styles": [
-              {
-                "input": "projects/ng-smart-datatable/src/lib/themes/bootstrap3/bootstrap.scss",
-                "bundle-name": "bootstrap3",
-                "inject": false
-              },
-              {
-                "input": "projects/ng-smart-datatable/src/lib/themes/bootstrap4/bootstrap.scss",
-                "bundle-name": "bootstrap4",
-                "inject": false
-              }
-            ]
+            "project": "projects/ng-smart-datatable/ng-package.json"
           }
         },
         "test": {
@@ -87,7 +74,6 @@
               "optimization": true,
               "outputHashing": "all",
               "sourceMap": false,
-              "extractCss": true,
               "namedChunks": false,
               "aot": true,
               "extractLicenses": true,

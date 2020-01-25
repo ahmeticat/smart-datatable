@@ -1,4 +1,4 @@
-export interface SmartSortProperty{
-    property:string;
-    isAsc:boolean;
+export interface SmartSortProperty {
+    property: string;
+    isAsc: boolean;
 }
