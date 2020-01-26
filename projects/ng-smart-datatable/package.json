@@ -1,6 +1,18 @@
 {
   "name": "ng-smart-datatable",
   "version": "0.0.1",
+  "description": "Simple Angular table components with sorting, filtering, exporting...",
+  "author": {
+    "email": "ahmeticat@gmail.com",
+    "name": "Ahmet ICAT",
+    "url": "https://github.com/ahmeticat"
+  },
+  "homepage": "https://github.com/ahmeticat/smart-datatable",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/ahmeticat/smart-datatable.git"
+  },
+  "license": "MIT",
   "peerDependencies": {
     "@angular/common": "^8.0.3",
     "@angular/core": "^8.0.3"
@@ -9,5 +21,14 @@
     "file-saver": "^2.0.2",
     "jspdf": "^1.5.3",
     "xlsx": "^0.15.4"
-  }
+  },
+  "keywords": [
+    "datatable",
+    "data-grid",
+    "table",
+    "export",
+    "angular-table",
+    "component",
+    "angular"
+  ]
 }
