@@ -127,7 +127,7 @@ export class NgSmartDatatableComponent implements OnInit {
     if (!this.model.language) {
       this.model.language = SmartModel.initializeDefaultLanguage();
     } else {
-      this.model.language = { ...this.model.language, ...SmartModel.initializeDefaultLanguage() };
+      this.model.language = { ...SmartModel.initializeDefaultLanguage(), ...this.model.language };
     }
   }
 

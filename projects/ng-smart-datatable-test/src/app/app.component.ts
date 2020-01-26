@@ -468,7 +468,10 @@ export class AppComponent {
         visible: true,
         action: this.btnCustomExcelButtonClick
       }
-    ]
+    ],
+    language: {
+      actionsColumnHeader: 'İşlemler'
+    }
   };
 
   btnEditClick(item: any) {
