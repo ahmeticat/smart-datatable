@@ -11,7 +11,7 @@
         {{property.inlineSearch !== true ? property.title:''}}
     </th>
     <th [style.width]="actionsColumnWidth" *ngIf="showActions">
-        Actions
+        {{model.language.actionsColumnHeader}}
     </th>
     <th [style.width]="property.width ? property.width: getLength() + '%'"
         *ngFor="let property of afterActionProperties;let i=index" (click)="sortClick(property)" [ngClass]="{

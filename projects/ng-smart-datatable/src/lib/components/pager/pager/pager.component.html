@@ -1,13 +1,19 @@
 <nav>
   <ul class="pagination" *ngIf="pages.length > 0">
     <li class="page-item" [ngClass]="{'disabled': activePage === 1}">
-      <a class="page-link" href="javascript:;" (click)="updatePage(activePage-1)">Previous</a>
+      <a class="page-link" href="javascript:;" (click)="updatePage(activePage-1)">{{previousLanguage}}</a>
     </li>
-    <li class="page-item" [ngClass]="{'active': item === activePage}" *ngFor="let item of pages">
+    <li class="page-item disabled" *ngIf="showBeforePages">
+      <a class="page-link" href="javascript:;">...</a>
+    </li>
+    <li class="page-item" [ngClass]="{'active': item === activePage}" *ngFor="let item of getPages()">
       <a class="page-link" href="javascript:;" (click)="updatePage(item)">{{item}}</a>
     </li>
+    <li class="page-item disabled" *ngIf="showAfterPages">
+      <a class="page-link" href="javascript:;">...</a>
+    </li>
     <li class="page-item" [ngClass]="{'disabled': activePage === pages.length}">
-      <a class="page-link" href="javascript:;" (click)="updatePage(activePage+1)">Next</a>
+      <a class="page-link" href="javascript:;" (click)="updatePage(activePage+1)">{{nextLanguage}}</a>
     </li>
   </ul>
 </nav>

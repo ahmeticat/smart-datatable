@@ -85,6 +85,7 @@ export class NgSmartDatatableComponent implements OnInit {
     this.tempData = this.data;
     this.initializeActions();
     this.initializeButtons();
+    this.initializeLanguage();
     this.refreshTable();
     this.activeSortProperty = {
       isAsc: true,
@@ -120,6 +121,14 @@ export class NgSmartDatatableComponent implements OnInit {
       this.model.actions = [...this.model.actions, ...SmartModel.initializeDefaultActions()];
     }
     this.addActionButton = this.model.actions.find(a => a.type === ActionType.Add);
+  }
+
+  initializeLanguage() {
+    if (!this.model.language) {
+      this.model.language = SmartModel.initializeDefaultLanguage();
+    } else {
+      this.model.language = { ...this.model.language, ...SmartModel.initializeDefaultLanguage() };
+    }
   }
 
   updatePageData() {

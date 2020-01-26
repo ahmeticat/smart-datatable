@@ -3,11 +3,13 @@ import { SmartAction } from './smart-action-property.model';
 import { ActionType } from './smart-action-type.model';
 import { SmartButton } from './smart-button.model';
 import { SmartButtonType } from './smart-button-type.model';
+import { SmartLanguage } from './smart-language.model';
 
 export class SmartModel {
     properties: SmartProperty[];
     actions?: SmartAction[];
     buttons?: SmartButton[];
+    language?: SmartLanguage;
 
     static initializeDefaultActions() {
         return [
@@ -62,5 +64,18 @@ export class SmartModel {
                 title: ''
             }
         ] as SmartButton[];
+    }
+
+    static initializeDefaultLanguage() {
+        return {
+            actionsColumnHeader: 'Actions',
+            filteredInfo: '(Filtered from **TOTAL** entries)',
+            info: 'Showing **START** to **END** of **TOTAL** entries',
+            lengthMenu: 'Show **LENGTH** entries',
+            paginationNext: 'Next',
+            paginationPrevious: 'Previous',
+            search: 'Search : **SEARCH**',
+            searchPlaceholder: 'Search'
+        } as SmartLanguage;
     }
 }

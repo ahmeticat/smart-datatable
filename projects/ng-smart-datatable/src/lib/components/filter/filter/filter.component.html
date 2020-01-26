@@ -1,2 +1,2 @@
-Search : <input type="text" style="width: 200px;float: right;margin-left: 5px;" placeholder="Search" class="smart-filter"
-[(ngModel)]="filterValue" (keyup)="onKeyup()" />
+{{searchBefore}}<input type="text" style="width: 200px;float: right;margin-left: 5px;" [placeholder]="searchPlaceholderLanguage" class="smart-filter"
+[(ngModel)]="filterValue" (keyup)="onKeyup()" />{{searchAfter}}
