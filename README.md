@@ -46,7 +46,7 @@ export class YourModule { }
 </ng-smart-datatable>
 ```
 3. _Example:_ Initialize data
-```bash
+```javascript
 data = [
     {
       Name: 'Airi',
