@@ -1,6 +1,6 @@
 {
   "name": "ng-smart-datatable",
-  "version": "0.0.1",
+  "version": "1.0.1",
   "description": "Simple Angular table components with sorting, filtering, exporting...",
   "author": {
     "email": "ahmeticat@gmail.com",
