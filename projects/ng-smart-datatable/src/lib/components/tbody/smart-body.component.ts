@@ -52,4 +52,8 @@ export class SmartBodyComponent implements OnInit {
   getButtonHtml(content: string): SafeHtml {
     return this.sanitizer.bypassSecurityTrustHtml(content);
   }
+
+  getNoResultHtml(): SafeHtml{
+    return this.sanitizer.bypassSecurityTrustHtml(this.model.language.noResultsFound);
+  }
 }

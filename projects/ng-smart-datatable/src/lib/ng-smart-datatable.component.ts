@@ -46,7 +46,7 @@ export class NgSmartDatatableComponent implements OnInit {
       },
       {
         value: -1,
-        title: 'Tümü'
+        title: 'All'
       }
     ] as SmartLength[];
 

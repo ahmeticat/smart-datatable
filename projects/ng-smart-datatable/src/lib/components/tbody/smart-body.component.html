@@ -17,9 +17,9 @@
 </tr>
 <tr *ngIf="data.length === 0" class="no-result-row">
     <td *ngIf="showActions" [colSpan]="model.properties.length + 1">
-        No results found
+        {{getNoResultHtml()}}
     </td>
     <td *ngIf="!showActions" [colSpan]="model.properties.length">
-        No results found
+        {{getNoResultHtml()}}
     </td>
 </tr>

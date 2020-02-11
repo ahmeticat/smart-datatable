@@ -75,7 +75,8 @@ export class SmartModel {
             paginationNext: 'Next',
             paginationPrevious: 'Previous',
             search: 'Search : **SEARCH**',
-            searchPlaceholder: 'Search'
+            searchPlaceholder: 'Search',
+            noResultsFound: 'No Results Found'
         } as SmartLanguage;
     }
 }
