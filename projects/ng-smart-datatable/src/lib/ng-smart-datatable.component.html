@@ -9,10 +9,7 @@
     (btnCopyClickEvent)="btnCopyClick()" (btnCsvClickEvent)="btnCsvClick()" (btnExcelClickEvent)="btnExcelClick()"
     (btnPdfClickEvent)="btnPdfClick()" style="float: right;margin-right: 30px;" *ngIf="showButtons"
     [buttons]="model.buttons"></smart-buttons>
-<table id="{{tableId}}" class="smart-datatable" [ngClass]="{
-    'bootstrap3-table bootstrap3-table-bordered bootstrap3-table-striped bootstrap3-table-hover': cssClass === cssClasses.Bootstrap3,
-    'bootstrap4-table bootstrap4-table-bordered bootstrap4-table-striped bootstrap4-table-hover': cssClass === cssClasses.Bootstrap4
-}">
+<table id="{{tableId}}" class="smart-datatable">
     <thead smart-head [showActions]="showActions" [beforeActionProperties]="beforeActionProperties"
         [afterActionProperties]="afterActionProperties" [actionsColumnOrder]="actionsColumnOrder" [model]="model"
         [activeSortProperty]="activeSortProperty" [actionsColumnWidth]="actionsColumnWidth"
