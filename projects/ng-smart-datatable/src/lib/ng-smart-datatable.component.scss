@@ -2,24 +2,36 @@
 // @import "./themes/bootstrap3/bootstrap.scss";
 
 .sorting_desc {
-  background-image: url("./assets/images/sort_desc.png");
-  background-repeat: no-repeat;
-  background-position: center right;
   cursor: pointer;
 }
 
 .sorting {
-  background-image: url("./assets/images/sort_both.png");
-  background-repeat: no-repeat;
-  background-position: center right;
   cursor: pointer;
 }
 
 .sorting_asc {
-  background-image: url("./assets/images/sort_asc.png");
-  background-repeat: no-repeat;
-  background-position: center right;
   cursor: pointer;
+}
+
+.sorting::before {
+  content: '\2195';
+  float: right;
+  font-weight: 1000;
+  font-size: 22px;
+}
+
+.sorting_asc::before {
+  content: "\2191";
+  float: right;
+  font-weight: 1000;
+  font-size: 22px;
+}
+
+.sorting_desc::before {
+  content: "\2193";
+  float: right;
+  font-weight: 1000;
+  font-size: 22px;
 }
 
 .smart-filter {
@@ -71,7 +83,6 @@ table.smart-datatable {
   border: 1px solid #1c6ea4;
   background-color: #eeeeee;
   width: 100%;
-  height: 250px;
   text-align: left;
   border-collapse: collapse;
 }
@@ -132,7 +143,9 @@ ul.pagination {
   margin: 5px 0;
 }
 
-ul.pagination li {display: inline;}
+ul.pagination li {
+  display: inline;
+}
 
 ul.pagination li a {
   float: left;
@@ -140,7 +153,6 @@ ul.pagination li a {
   border-radius: 2px;
   text-decoration: none;
 }
-
 
 .page-item.disabled .page-link {
   color: #6c757d;
@@ -153,7 +165,7 @@ ul.pagination li a {
 .page-link {
   position: relative;
   display: block;
-  padding: .5rem .75rem;
+  padding: 0.5rem 0.75rem;
   margin-left: -1px;
   line-height: 1.25;
   color: #1c6ea4;

@@ -16,10 +16,8 @@
     </td>
 </tr>
 <tr *ngIf="data.length === 0" class="no-result-row">
-    <td *ngIf="showActions" [colSpan]="model.properties.length + 1">
-        {{getNoResultHtml()}}
+    <td [innerHTML]="getNoResultHtml()" *ngIf="showActions" [colSpan]="model.properties.length + 1">
     </td>
-    <td *ngIf="!showActions" [colSpan]="model.properties.length">
-        {{getNoResultHtml()}}
+    <td [innerHTML]="getNoResultHtml()" *ngIf="!showActions" [colSpan]="model.properties.length">
     </td>
 </tr>
