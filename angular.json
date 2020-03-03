@@ -151,5 +151,8 @@
       }
     }
   },
-  "defaultProject": "ng-smart-datatable"
+  "defaultProject": "ng-smart-datatable",
+  "cli": {
+    "analytics": "ace771b5-f298-4853-be3c-c38b53fef3b1"
+  }
 }
